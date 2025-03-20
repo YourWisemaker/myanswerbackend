@@ -1,0 +1,7 @@
+Task 4: Collections
+Visit this data sample.
+Given the $employees and $offices arrays, write elegant code using collections to generate the $output array.
+
+1. Collect arrays into collections
+2. Group employees by city and then extract the names from each employee groups
+3. Generate the output structure and then map each office name to employees in its city
