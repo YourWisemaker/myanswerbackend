@@ -53,18 +53,18 @@ $username = Context::get('username');
 C) Differences Between $query->update(), $model->update(), and $model->updateQuietly()
 
 1. $query->update()
-This method is part on query builder, it's allow to update directly to the database table. Use this when need to update record quickly without invoking any model events / business logic. For example we need to do bulk updates in database (it bypasses the model's lifecycle). Work on query builder.
+This method is part on query builder, it's allow to update directly to the database table. Use it when we need to update record quickly without invoking any model events / business logic. For example we need to do bulk updates in database (it bypasses the model's lifecycle). Work on query builder.
 Example: 
 DB::table('users')->where('active', 1)->update(['status' => 'inactive']);
 
 2. $model->update()
-This method is part on model and it performs same as $query->update() but it's also triggering model events (hook into the model's lifecycle) / it respects any defined business logic. Not work on query builder.
+This method is part on model and it performs same as $query->update() but it's also triggering model events (hook into the model's lifecycle) / it respects any defined business logic. Use it when we need to update a specific instance of a model and really need Eloquent's features. Not work on query builder.
 Example: 
 $user = User::find(1);
 $user->update(['username' => 'arief']);
 
 3. $model->updateQuietly()
-This method is eloquent method but it updates the model without triggering any model events. Not work on query builder. Use this when we need to update an Eloquent model but want to suppress events, such as during batch updates or when events are not needed
+This method is eloquent method but it updates the model without triggering any model events. Not work on query builder. Use it when we need to update an Eloquent model but want to suppress events, like when doing batch updates or when events aren't needed
 Example: 
 $user = User::find(1);
 $user->updateQuietly(['username' => 'ariefsilent']);
