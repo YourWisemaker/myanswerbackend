@@ -1,0 +1,8 @@
+Task 3: Testing
+Visit this SpreadsheetService code sample
+Write a PHPUnit test class with suitable test cases for the SpreadsheetService::processSpreadsheet method.
+Submit your test code.
+
+Answer:
+1. I created 2 files for testing SpreadsheetService, one is for jobs (ProcessProductImage), one is for phpunit testing (that can works with laravel)
+2. Run: php artisan test tests/Unit/Services/SpreadsheetServiceTest.php
