@@ -1,0 +1,9 @@
+Task 2: Eloquent
+Given the following unoptimized Laravel code. {link}
+How would you refactor it to improve its performance and efficiency, ensuring that the code is both optimized for database queries and maintains readability?
+Refactor the controller method, explain and suggest further improvements.
+Submit your code.
+
+Answer:
+I refactored the code and improve its performance and efficiency, i am using addselect, pluck, keyBy, wherein, etc.
+I just using optimized eloquent functions to improve the performance and make the next developer can read it. 

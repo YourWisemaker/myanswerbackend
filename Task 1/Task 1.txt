@@ -1,0 +1,10 @@
+Task 1: Communication
+Generate a 10 x 52 table where each value is drawn from a standard uniform distribution. 
+The 10 rows represent 10 individuals and the 52 columns represent 52 weeks (= one year)
+For each individual, compute the cumulative sums of the data across columns from inception until the given week
+Create and show in a google sheet the chart of such cumulative sums, namely 10 increasing lines. Label the axes “Week” and “Cumulative sum”.
+Share the google sheet with the output for evaluation of this task.
+
+Answer:
+I created a Google Sheet with the following instruction also I attached it on this folder
+Google sheet link: https://docs.google.com/spreadsheets/d/1AjedlU6fOpL7VrFGJZ1F3tQ53OJmYms6/edit?usp=sharing&ouid=111036771118650715362&rtpof=true&sd=true
