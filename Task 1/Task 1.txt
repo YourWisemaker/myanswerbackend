@@ -7,4 +7,4 @@ Share the google sheet with the output for evaluation of this task.
 
 Answer:
 I created a Google Sheet with the following instruction also I attached it on this folder
-Google sheet link: https://docs.google.com/spreadsheets/d/1AjedlU6fOpL7VrFGJZ1F3tQ53OJmYms6/edit?usp=sharing&ouid=111036771118650715362&rtpof=true&sd=true
+Google sheet link: https://docs.google.com/spreadsheets/d/1AjedlU6fOpL7VrFGJZ1F3tQ53OJmYms6/
