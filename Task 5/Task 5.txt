@@ -1,0 +1,70 @@
+Task 5: Q&A
+Answer the following questions
+
+A) Explain this code:
+Schedule::command('app:example-command')
+    ->withoutOverlapping()
+    ->hourly()
+    ->onOneServer()
+    ->runInBackground();
+
+B) What is the difference between the Context and Cache Facades? Provide examples to illustrate your explanation.
+
+C) What's the difference between $query->update(), $model->update(), and $model->updateQuietly() in Laravel, and when would you use each?
+
+Answer:
+
+A) 1. Schedule::command('app:example-command') :
+This command is telling laravel scheduler to run the artisan command with name "app:example-command".
+2. ->withoutOverlapping() : This method is prevent the command from starting new instance if previous instance still running.
+3. ->hourly() : This method is telling laravel scheduler / indicate that command should be run once per hour
+4. ->onOneServer() : This method is indicate to run the command on one server only, for example if it's in multi-server setups it might be using a centralized schedule. This one is for avoiding simultaneus executions on multiple servers.
+5. ->runInBackground() : This method is instructing laravel for startin the task as a background process. It means the scheduler will not wait for the command to finish before moving to the next task.
+
+B) Difference between Context and Cache Facades:
+
+1. Cache Facade is used for caching data inside the function.
+Example:
+// Storing a value in the cache for 90 minutes
+Cache::put('userArief', $userData, 90);
+
+// Retrieving the cached value
+$userData = Cache::get('userArief');
+
+2. Context Facade is used for storing data inside the function.
+Example:
+//Store it somewhere (for example inside services) to call it
+class Context extends Facade
+{
+    protected static function getFacadeAccessor()
+    {
+        return 'context';
+    }
+}
+
+//Call it in the function
+Context::put('username', 'john_doe');
+$username = Context::get('username');
+
+1. Meanwhile Cache is using to store data for specific duration to boost performance, context is just used to store data to solve some problems.
+2. Cache is exist in laravel by default, meanwhile context is not exist and it's created by custom.
+
+
+C) Differences Between $query->update(), $model->update(), and $model->updateQuietly()
+
+1. $query->update()
+This method is part on query builder, it's allow to update directly to the database table. Use this when need to update record quickly without invoking any model events / business logic. For example we need to do bulk updates in database (it bypasses the model's lifecycle). Work on query builder.
+Example: 
+DB::table('users')->where('active', 1)->update(['status' => 'inactive']);
+
+2. $model->update()
+This method is part on model and it performs same as $query->update() but it's also triggering model events (hook into the model's lifecycle) / it respects any defined business logic. Not work on query builder.
+Example: 
+$user = User::find(1);
+$user->update(['username' => 'arief']);
+
+3. $model->updateQuietly()
+This method is eloquent method but it updates the model without triggering any model events. Not work on query builder. Use this when we need to update an Eloquent model but want to suppress events, such as during batch updates or when events are not needed
+Example: 
+$user = User::find(1);
+$user->updateQuietly(['username' => 'ariefsilent']);
